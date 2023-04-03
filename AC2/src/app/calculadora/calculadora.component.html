@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="col-md-12">
+    <form [formGroup]="form" (ngSubmit)="calcular()">
+      <div class="mb-3">
+        <label for="peso" class="form-label">Peso:</label>
+        <input [(ngModel)]="peso"  formControlName="peso" type="number" class="form-control" id="peso">
+        <div style="color: red;" *ngIf="form.get('peso').invalid && (form.get('peso').dirty || form.get('peso').touched)">
+          <div *ngIf="form.get('peso').errors['required']">Digite um peso!</div>
+          <div *ngIf="form.get('peso').errors['min']">Digite um valor acima do minimo</div>
+          <div *ngIf="form.get('peso').errors['max']">Digite um valor abaixo do maximo</div>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="altura" class="form-label">Altura</label>
+        <input [(ngModel)]="altura" formControlName="altura" type="number" class="form-control" id="altura">
+        <div style="color: red;" *ngIf="form.get('altura').invalid && (form.get('altura').dirty || form.get('altura').touched)">
+          <div *ngIf="form.get('altura').errors['required']">Digite um peso!</div>
+          <div *ngIf="form.get('altura').errors['min']">Digite um valor acima do minimo</div>
+          <div *ngIf="form.get('altura').errors['max']">Digite um valor abaixo do maximo</div>
+        </div>
+      </div>
+      <button [disabled]="!form.valid" class = "btn btn-primary" type="submit">Calcular</button>
+      <p>{{resultadoIMC}}{{resultadoNum}}</p>
+    </form>
+  </div>
+</div>
