@@ -14,7 +14,7 @@
         <label for="altura" class="form-label">Altura</label>
         <input [(ngModel)]="altura" formControlName="altura" type="number" class="form-control" id="altura">
         <div style="color: red;" *ngIf="form.get('altura').invalid && (form.get('altura').dirty || form.get('altura').touched)">
-          <div *ngIf="form.get('altura').errors['required']">Digite um peso!</div>
+          <div *ngIf="form.get('altura').errors['required']">Digite um altura!</div>
           <div *ngIf="form.get('altura').errors['min']">Digite um valor acima do minimo</div>
           <div *ngIf="form.get('altura').errors['max']">Digite um valor abaixo do maximo</div>
         </div>
